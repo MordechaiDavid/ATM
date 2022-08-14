@@ -44,7 +44,8 @@ public class LogInPanel extends JPanel implements ActionListener {
 
         message = new JLabel();
         message.setForeground(Color.green);
-        message.setBounds(logInButton.getX(), logInButton.getY()+logInButton.getHeight()+30, 100,40);
+        message.setBounds(IDLabel.getX(), logInButton.getY()+logInButton.getHeight()+30, 280,40);
+        message.setFont(new Font("David", Font.BOLD, 25));
 
 
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
@@ -73,13 +74,15 @@ public class LogInPanel extends JPanel implements ActionListener {
 
             if (infoList.containsKey(ID)){
                 if (infoList.get(ID).equals(password)) {
+                    message.setBackground(Color.white);
+                    message.setOpaque(true);
                     message.setText("Login successful");
-                    System.out.println("df");
                     new MenuPanel();
                 }
             }
             else {
                 message.setForeground(Color.red);
+                message.setOpaque(true);
                 message.setText("incorrect ID or password");
             }
         }
