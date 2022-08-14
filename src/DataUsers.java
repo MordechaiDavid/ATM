@@ -1,10 +1,9 @@
 import java.util.HashMap;
-import java.util.Stack;
 
-public class UsersData {
+public class DataUsers {
     private HashMap<String, String> infoList = new HashMap<String, String>();
 
-    public UsersData(){
+    public DataUsers(){
         infoList.put("MordeDavid", "MD18");
         infoList.put("MorYudaDavid", "Myd897");
     }
