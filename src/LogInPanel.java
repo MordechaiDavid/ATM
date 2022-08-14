@@ -16,8 +16,8 @@ public class LogInPanel extends JPanel implements ActionListener {
     protected JLabel message;
     protected JButton logInButton;
 
-    public LogInPanel(DataUsers originalDataUsers){
-        infoList = originalDataUsers.getInfoList();
+    public LogInPanel(UsersData originalUsersData){
+        infoList = originalUsersData.getInfoList();
         backgroundImage = new ImageIcon("bank.png").getImage();
         Font font = new Font(null, Font.ITALIC, 16);
         IDLabel = new JLabel("User ID: ");

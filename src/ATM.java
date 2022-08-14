@@ -3,8 +3,8 @@ import javax.swing.*;
 public class ATM extends JFrame {
 
     public ATM(){
-        DataUsers dataUsers = new DataUsers();
-        LogInPanel logInPanel = new LogInPanel(dataUsers);
+        UsersData usersData = new UsersData();
+        LogInPanel logInPanel = new LogInPanel(usersData);
         this.add(logInPanel);
         this.setTitle("ATM");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

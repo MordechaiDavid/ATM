@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
-public class DataUsers {
+public class UsersData {
     private HashMap<String, String> infoList = new HashMap<String, String>();
 
-    public DataUsers(){
+    public UsersData(){
         infoList.put("MordeDavid", "MD18");
         infoList.put("MorYudaDavid", "Myd897");
     }
