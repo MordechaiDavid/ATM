@@ -88,6 +88,8 @@ public class LogInPanel extends JPanel implements ActionListener {
                 message.setForeground(Color.red);
                 message.setOpaque(true);
                 message.setText("incorrect ID or password");
+                IDFiled.setText("");
+                passwordField.setText("");
             }
         }
     }
