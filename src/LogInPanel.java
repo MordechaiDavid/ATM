@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class LogInPanel extends JPanel implements ActionListener {
     protected final int PANEL_WIDTH = 500;
     protected final int PANEL_HEIGHT = 500;
+    protected JFrame frame;
     protected HashMap<String, String> infoList;
     protected Image backgroundImage;
     protected JLabel IDLabel;
@@ -16,7 +17,8 @@ public class LogInPanel extends JPanel implements ActionListener {
     protected JLabel message;
     protected JButton logInButton;
 
-    public LogInPanel(UsersData originalUsersData){
+    public LogInPanel(JFrame frame, UsersData originalUsersData){
+        this.frame = frame;
         infoList = originalUsersData.getInfoList();
         backgroundImage = new ImageIcon("bank.png").getImage();
         Font font = new Font(null, Font.ITALIC, 16);
@@ -43,7 +45,6 @@ public class LogInPanel extends JPanel implements ActionListener {
         logInButton.addActionListener(this);
 
         message = new JLabel();
-        message.setForeground(Color.green);
         message.setBounds(IDLabel.getX(), logInButton.getY()+logInButton.getHeight()+30, 280,40);
         message.setFont(new Font("David", Font.BOLD, 25));
 
@@ -74,10 +75,13 @@ public class LogInPanel extends JPanel implements ActionListener {
 
             if (infoList.containsKey(ID)){
                 if (infoList.get(ID).equals(password)) {
-                    message.setBackground(Color.white);
+                    message.setForeground(Color.green);
                     message.setOpaque(true);
                     message.setText("Login successful");
-                    new MenuPanel();
+                    frame.getContentPane().removeAll();
+                    frame.getContentPane().add(new MenuPanel());
+                    frame.pack();
+
                 }
             }
             else {
