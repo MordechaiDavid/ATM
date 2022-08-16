@@ -3,12 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.List;
 
 public class LogInPanel extends JPanel implements ActionListener {
     protected final int PANEL_WIDTH = 500;
     protected final int PANEL_HEIGHT = 500;
     protected JFrame frame;
-    protected HashMap<String, String> infoList;
+    protected List<BankAccount> bankAccounts;
     protected Image backgroundImage;
     protected JLabel IDLabel;
     protected JLabel passwordLabel;
@@ -17,9 +18,9 @@ public class LogInPanel extends JPanel implements ActionListener {
     protected JLabel message;
     protected JButton logInButton;
 
-    public LogInPanel(JFrame frame, UsersData originalUsersData){
+    public LogInPanel(JFrame frame, List<BankAccount> bankAccounts){
         this.frame = frame;
-        infoList = originalUsersData.getInfoList();
+        this.bankAccounts = bankAccounts;
         backgroundImage = new ImageIcon("bank.png").getImage();
         Font font = new Font(null, Font.ITALIC, 16);
         IDLabel = new JLabel("User ID: ");
@@ -73,17 +74,33 @@ public class LogInPanel extends JPanel implements ActionListener {
             String ID = IDFiled.getText();
             String password = String.valueOf(passwordField.getPassword());
 
+            for (BankAccount account: bankAccounts){
+                if (account.getID().equals(ID)){
+                    if (account.getPassword().equals(password)){
+                        message.setForeground(Color.green);
+                        message.setOpaque(true);
+                        message.setText("Login successful");
+                        frame.getContentPane().removeAll();
+                        frame.getContentPane().add(new MenuPanel(account));
+                        frame.pack();
+                    }
+                }
+            }
+
+            /*
             if (infoList.containsKey(ID)){
                 if (infoList.get(ID).equals(password)) {
                     message.setForeground(Color.green);
                     message.setOpaque(true);
                     message.setText("Login successful");
                     frame.getContentPane().removeAll();
-                    frame.getContentPane().add(new MenuPanel());
+                    frame.getContentPane().add(new MenuPanel(bank));
                     frame.pack();
 
                 }
             }
+
+
             else {
                 message.setForeground(Color.red);
                 message.setOpaque(true);
@@ -91,6 +108,8 @@ public class LogInPanel extends JPanel implements ActionListener {
                 IDFiled.setText("");
                 passwordField.setText("");
             }
+
+             */
         }
     }
 }

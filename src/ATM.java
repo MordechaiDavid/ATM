@@ -6,8 +6,8 @@ public class ATM extends JFrame {
 
     public ATM(){
         icon = new ImageIcon("ATM_icon.png").getImage();
-        UsersData usersData = new UsersData();
-        LogInPanel logInPanel = new LogInPanel(this, usersData);
+        Bank bank = new Bank();
+        LogInPanel logInPanel = new LogInPanel(this, bank.getBankAccounts());
         this.getContentPane().add(logInPanel);
         this.setTitle("ATM");
         this.setIconImage(icon);
