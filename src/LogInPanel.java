@@ -9,6 +9,7 @@ public class LogInPanel extends JPanel implements ActionListener {
     protected final int PANEL_WIDTH = 500;
     protected final int PANEL_HEIGHT = 500;
     protected JFrame frame;
+    protected Bank bank;
     protected List<BankAccount> bankAccounts;
     protected Image backgroundImage;
     protected JLabel IDLabel;
@@ -18,9 +19,10 @@ public class LogInPanel extends JPanel implements ActionListener {
     protected JLabel message;
     protected JButton logInButton;
 
-    public LogInPanel(JFrame frame, List<BankAccount> bankAccounts){
+    public LogInPanel(JFrame frame, Bank bank){
         this.frame = frame;
-        this.bankAccounts = bankAccounts;
+        this.bank = bank;
+        this.bankAccounts = bank.getBankAccounts();
         backgroundImage = new ImageIcon("bank.png").getImage();
         Font font = new Font(null, Font.ITALIC, 16);
         IDLabel = new JLabel("User ID: ");
@@ -81,7 +83,7 @@ public class LogInPanel extends JPanel implements ActionListener {
                         message.setOpaque(true);
                         message.setText("Login successful");
                         frame.getContentPane().removeAll();
-                        frame.getContentPane().add(new MenuPanel(account));
+                        frame.getContentPane().add(new MenuPanel(bank, account));
                         frame.pack();
                     }
                 }

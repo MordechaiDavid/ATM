@@ -1,4 +1,6 @@
-public class BankAccount {
+import java.io.Serializable;
+
+public class BankAccount implements Serializable {
     private String ID;
     private String password;
     private double balance;
