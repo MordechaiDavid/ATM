@@ -25,7 +25,7 @@ public class SubmitFrame extends JFrame{
                     ex.printStackTrace();
                 }
             }
-            menuPanel.balanceLabel.setText("Your balance " + MenuPanel.DECIMAL_FORMAT.format(account.getBalance()));
+            menuPanel.balanceLabel.setText("Your balance is " + MenuPanel.DECIMAL_FORMAT.format(account.getBalance()));
             textField.setText("");
         }));
 

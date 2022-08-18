@@ -21,11 +21,11 @@ public class MenuPanel extends JPanel implements ActionListener {
     public MenuPanel(Bank bank, BankAccount account){
         this.bank = bank;
         this.account = account;
-        backgroundImage = new ImageIcon("menu_image.png").getImage();
+        backgroundImage = new ImageIcon("menu_image.jpg").getImage();
 
         Font balanceFont = new Font("Bernard MT Condensed", Font.ITALIC, 30);
 
-        balanceLabel = new JLabel("Your balance "+DECIMAL_FORMAT.format(account.getBalance()));
+        balanceLabel = new JLabel("Your balance is "+DECIMAL_FORMAT.format(account.getBalance()));
         balanceLabel.setBounds(100, 60, 350, 80);
         balanceLabel.setForeground(Color.black);
         balanceLabel.setFont(balanceFont);
@@ -63,7 +63,7 @@ public class MenuPanel extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //g.drawImage(backgroundImage, 0, 0 , null);
+        g.drawImage(backgroundImage, 0, 0 , null);
     }
 
     @Override
